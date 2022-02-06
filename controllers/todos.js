@@ -30,4 +30,16 @@ const createTodo = async (req, res) => {
   }
 };
 
-module.exports = { getAllTodos, getTodo, createTodo };
+const deleteTodo = async (req, res) => {
+  try {
+    const todo = await Todo.findByIdAndDelete(req.params.id);
+    if (!todo) {
+      return res.status(404).json({ message: "Todo Not Found" });
+    }
+    res.status(200).json(todo);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+module.exports = { getAllTodos, getTodo, createTodo, deleteTodo };
