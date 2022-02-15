@@ -2,7 +2,7 @@
 A simple Todos REST API built using:
 * NodeJS
 * Express
-* Mongodb
+* MongoDB
 * Mongoose
 
 # Installation and Run
